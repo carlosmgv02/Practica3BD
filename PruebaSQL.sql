@@ -5,13 +5,13 @@ use BDNilCarlos;
 
 create table armesBio(
     nom varchar(20) not null,
-    fecha date(1),
+    fecha date,
     potencial int(1),
     zona varchar(20) not null,
-    laboratori varchar (20)not null,
+    laboratori varchar(20) not null,
     constraint  pk_armesBio primary key (nom)
 ) engine=innodb;
-CREATE TABLE employees (
+create table employees (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     branch_id BIGINT UNSIGNED,
     dni VARCHAR(20) UNIQUE,
@@ -20,7 +20,7 @@ CREATE TABLE employees (
     birth_date DATE,
     created_at TIMESTAMP NULL,
     updated_at TIMESTAMP NULL  
-);
+)engine=innodb;
 insert into employees(id)values(123);
 
 -- insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma1','2022-05-24',7,'Vila-seca','Lab prova');
