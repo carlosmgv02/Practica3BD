@@ -1,6 +1,6 @@
 drop database BDNilCarlos;
 
-create database BDNilCarlos
+create database BDNilCarlos;
 use BDNilCarlos;
 
 create table armesBio(
