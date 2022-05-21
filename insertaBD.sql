@@ -1,7 +1,10 @@
 use BDNilCarlos;
 insert into employees(num_pass,nom) values('12345678P','Nil');
 insert into employees(num_pass,nom) values('49424598J','Carlos');
-insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma1','2022-05-24',7,'Vila-seca','Lab prova');
-insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma2','2022-03-21',7,'Guatemala','Lab guatemailano');
-insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma3','2022-05-03',7,'Paraguai','Lab de paraguais');
-insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma4','2021-07-13',7,'CanyadaReal','Lab de coca');
+insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma1','2022-05-24',7,'Vila-seca',12);
+insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma2','2022-03-21',7,'Guatemala',11);
+insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma3','2022-05-03',7,'Paraguai',7);
+insert into armesBio(nom,fecha,potencial,zona,laboratori) values('Arma4','2021-07-13',7,'CanyadaReal',5);
+insert into qualificats(num_pass, titulacio, zona_assignada, lab) VALUES ('12345','Informático','Barcelona',12);
+insert into zona_biocon(codi,codiLab,nivell,responsable) values('12345',12,3,'Carlos');
+insert into zona_biocon(codi,codiLab,nivell,responsable) values('54321',7,5,'Nil');

@@ -13,61 +13,63 @@ create table paisos(
 create table laboratoris(
     codi int(20) PRIMARY KEY,
     nom varchar(20),
-    paisos VARCHAR(20),
-    constraint  fk_paisos foreign key (nom) REFERENCES paisos(nom)
+    paisos varchar(20),
+    constraint fk_paisos foreign key (nom) REFERENCES paisos(nom)
 
 ) engine=innodb;
+create table employees (
+    num_pass varchar(20) PRIMARY KEY,
+    nom varchar(20)
+
+)engine=innodb;
+create table qualificats(
+    num_pass varchar(20) PRIMARY KEY,
+    titulacio varchar(20),
+    zona_assignada varchar(20),
+    lab int,
+    constraint fk_num_pas foreign key(num_pass)REFERENCES employees(num_pass)
+    -- constraint fk_zona_ass foreign key(zona_assignada, lab) REFERENCES zona_biocon(codi, codiLab)
+    
+)engine=innodb;
+
 
 create table zona_biocon(
     codi varchar(20),
-    codiLab varchar(20),
-    nivell int(1),
+    codiLab int,
+    nivell int,
     responsable varchar(20),
     primary key (codi, codiLab),
-    constraint  fk_polla foreign key (codiLab) REFERENCES laboratoris(codi),
+    constraint  fk_lab foreign key (codiLab) REFERENCES laboratoris(codi),
     constraint  fk_cl foreign key (responsable) REFERENCES qualificats(num_pass)
-
 ) engine=innodb;
-
-
 
 create table armesBio(
     nom varchar(20) PRIMARY KEY,
     fecha date,
-    potencial int(1),
+    potencial int,
     zona varchar(20) not null,
-    laboratori varchar(20) not null,
+    laboratori int not null,
     constraint fk_zona foreign key(zona, laboratori) REFERENCES zona_biocon(codi, codiLab)
-
 ) engine=innodb;
 
 
-create table employees (
-    num_pass varchar(11) PRIMARY KEY,
-    nom varchar(150)
+ALTER TABLE qualificats
+ADD CONSTRAINT fk_zona_ass
+    FOREIGN KEY (zona_assignada,lab) REFERENCES zona_biocon (codi, codiLab) ON DELETE CASCADE; 
 
-)engine=innodb;
 
 create table ordinaris(
-    num_pass varchar(11),
+    num_pass varchar(20),
     constraint fk_num_pass foreign key(num_pass) REFERENCES employees(num_pass)
 )engine=innodb;
 
-create table qualificats(
-    num_pass varchar(11) PRIMARY KEY,
-    titulacio varchar(25),
-    zona_assignada varchar(35),
-    lab varchar(30),
-    constraint fk_num_pas foreign key(num_pass)references employees(num_pass),
-    constraint fk_zona_ass foreign key(zona_assignada, lab) references zona_biocon(codi, codiLab)
-    
-)engine=innodb;
+
 
 create table assignacions(
     fecha date,
-    empl_ord varchar(11),
-    zona VARCHAR(20),
-    lab varchar(20),
+    empl_ord varchar(2),
+    zona varchar(20),
+    lab int,
     data_fi date,
     primary key (fecha, empl_ord),
     constraint fk_empl_ord foreign key(empl_ord)references ordinaris(num_pass),
