@@ -11,7 +11,7 @@ create table paisos(
 ) engine=innodb;
 
 create table laboratoris(
-    codi int(20) PRIMARY KEY,
+    codi int PRIMARY KEY,
     nom varchar(20),
     paisos varchar(20),
     constraint fk_paisos foreign key (nom) REFERENCES paisos(nom)
@@ -29,7 +29,6 @@ create table qualificats(
     lab int,
     constraint fk_num_pas foreign key(num_pass)REFERENCES employees(num_pass)
     -- constraint fk_zona_ass foreign key(zona_assignada, lab) REFERENCES zona_biocon(codi, codiLab)
-    
 )engine=innodb;
 
 
