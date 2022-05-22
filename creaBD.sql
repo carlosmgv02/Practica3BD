@@ -7,7 +7,8 @@ create table paisos(
     nom varchar(20) PRIMARY KEY,
     pot_desenc boolean,
     -- tractat_signat char(1) check(tractat_signat='S' OR tractat_signat='N');
-    tractat_signat boolean
+    tractat_signat char(1),
+    constraint chk_tractat check(tractat_signat ='S' OR tractat_signat='N' OR tractat_signat='D')
 ) engine=innodb;
 
 create table laboratoris(
@@ -33,9 +34,10 @@ create table qualificats(
 create table zona_biocon(
     codi varchar(20) UNIQUE,
     codiLab int,
-    nivell int,
+    nivell char(1), -- nivell perillositat A, M, B. 
     responsable varchar(20),
     primary key (codi, codiLab),
+    constraint chk_level check(nivell='A' OR nivell='B' OR nivell='M'),
     constraint  fk_lab foreign key (codiLab) REFERENCES laboratoris(codi),
     constraint  fk_cl foreign key (responsable) REFERENCES qualificats(num_pass)
 ) engine=innodb;
@@ -43,7 +45,7 @@ create table zona_biocon(
 create table armesBio(
     nom varchar(20) PRIMARY KEY,
     fecha date,
-    potencial int,
+    potencial int CHECK (potencial<10 AND potencial>1),
     zona varchar(20) not null,
     laboratori int not null,
     constraint fk_zona foreign key(zona, laboratori) REFERENCES zona_biocon(codi, codiLab)
@@ -64,7 +66,7 @@ create table ordinaris(
 
 create table assignacions(
     fecha date,
-    empl_ord varchar(2),
+    empl_ord varchar(20),
     zona varchar(20),
     lab int,
     data_fi date,
