@@ -3,10 +3,10 @@ drop database BDNilCarlos;
 create database BDNilCarlos;
 use BDNilCarlos;
 
-
 create table paisos(
     nom varchar(20) PRIMARY KEY,
     pot_desenc boolean,
+    -- tractat_signat char(1) check(tractat_signat='S' OR tractat_signat='N');
     tractat_signat boolean
 ) engine=innodb;
 
@@ -14,13 +14,12 @@ create table laboratoris(
     codi int PRIMARY KEY,
     nom varchar(20),
     paisos varchar(20),
-    constraint fk_paisos foreign key (nom) REFERENCES paisos(nom)
-
+    constraint fk_paisos foreign key (paisos) REFERENCES paisos(nom)
 ) engine=innodb;
 create table employees (
     num_pass varchar(20) PRIMARY KEY,
     nom varchar(20)
-
+    -- age integer CHECK(age>=18 && age<50)
 )engine=innodb;
 create table qualificats(
     num_pass varchar(20) PRIMARY KEY,
@@ -28,12 +27,11 @@ create table qualificats(
     zona_assignada varchar(20),
     lab int,
     constraint fk_num_pas foreign key(num_pass)REFERENCES employees(num_pass)
-    -- constraint fk_zona_ass foreign key(zona_assignada, lab) REFERENCES zona_biocon(codi, codiLab)
 )engine=innodb;
 
 
 create table zona_biocon(
-    codi varchar(20),
+    codi varchar(20) UNIQUE,
     codiLab int,
     nivell int,
     responsable varchar(20),
