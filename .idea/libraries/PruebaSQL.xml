@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PruebaSQL">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PruebaSQL.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
