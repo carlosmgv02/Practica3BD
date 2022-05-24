@@ -1,6 +1,7 @@
 use BDNilCarlos;
 
-select laboratoris.codi,laboratoris.nom FROM (laboratoris 
-INNER JOIN zona_biocon ON zona_biocon.codiLab=laboratoris.codi)
-WHERE (zona_biocon.nivell='A')
+select l.codi,l.nom FROM (laboratoris l
+INNER JOIN zona_biocon z ON z.codiLab=l.codi)
+WHERE (z.nivell='A')
 ORDER BY nom ASC ;
+

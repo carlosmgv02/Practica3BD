@@ -1,4 +1,3 @@
-select employees.nom FROM (employees INNER JOIN ordinaris ON ordinaris.num_pass=employees.num_pass
-     INNER JOIN assignacions ON assignacions.empl_ord=ordinaris.num_pass
-    INNER JOIN assignacions ON assignacions.zona=zona_biocon.codi INNER JOIN assignacions
-    on assignacions.lab=zona_biocon.codiLab) where zona_biocon.nivell<>'A';
+select e.nom FROM employees e INNER JOIN ordinaris o ON o.num_pass=e.num_pass
+      WHERE not exists( select a.empl_ord from assignacions a
+          INNER JOIN zona_biocon z ON a.zona=z.codi WHERE z.nivell='A' AND a.empl_ord=o.num_pass);
