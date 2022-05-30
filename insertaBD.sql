@@ -4,6 +4,7 @@ insert into employees(num_pass,nom) values('49424598J','Carlos');
 insert into employees(num_pass,nom)values('83128731T','Gabriel');
 insert into employees(num_pass, nom) VALUES ('3123811T','Genis');
 insert into employees(num_pass, nom) VALUES ('77777777','David');
+insert into employees(num_pass, nom) VALUES ('135794K','Jordi Guasch');
 insert into paisos(nom, pot_desenc, tractat_signat) VALUES ('Spain',true,'S');
 insert into paisos(nom, pot_desenc, tractat_signat) VALUES ('Germany',true,'N');
 insert into paisos(nom, pot_desenc, tractat_signat) VALUES ('France',false,'D');
