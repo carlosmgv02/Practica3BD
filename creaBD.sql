@@ -29,8 +29,6 @@ create table qualificats(
     lab int,
     constraint fk_num_pas foreign key(num_pass)REFERENCES employees(num_pass)
 )engine=innodb;
-
-
 create table zona_biocon(
     codi varchar(20) UNIQUE,
     codiLab int,

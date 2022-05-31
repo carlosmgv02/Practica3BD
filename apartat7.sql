@@ -1,5 +1,6 @@
 use bdnilcarlos;
-
+/*Obtenir quins són els empleats ordinaris que han estat en més zones de
+biocontenció que l’empleat anomenat “Jordi Guasch’.*/
 SELECT nom,num_pass
 from assignacions,employees
 where num_pass=empl_ord

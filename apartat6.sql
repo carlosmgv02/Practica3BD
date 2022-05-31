@@ -1,5 +1,7 @@
 use bdnilcarlos;
 
+/*Obtenir quins empleats ordinaris han estat en totes les zones de biocontenció
+del laboratori que té per nom ‘BCN-XXX’*/
 select empl_ord
 FROM assignacions
 WHERE zona IN(SELECT codi

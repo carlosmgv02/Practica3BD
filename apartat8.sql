@@ -1,5 +1,8 @@
 use bdnilcarlos;
-
+/*Creeu una vista que obtingui el llistat d’empleats amb el codi de la zona que té
+assignada. Tingueu en compte que també volem que els responsables de zona
+apareguin com a empleats assignats, i que no volem que cap empleat aparegui més
+d’una vegada.*/
 drop view llista_empleats;
 CREATE VIEW llista_empleats AS
     select E.nom, A.zona
