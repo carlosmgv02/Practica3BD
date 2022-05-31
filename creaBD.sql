@@ -58,7 +58,7 @@ ADD CONSTRAINT fk_zona_ass
 
 
 create table ordinaris(
-    num_pass varchar(20),
+    num_pass varchar(20)UNIQUE ,
     constraint fk_num_pass foreign key(num_pass) REFERENCES employees(num_pass)
 )engine=innodb;
 

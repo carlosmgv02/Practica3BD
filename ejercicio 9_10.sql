@@ -1,10 +1,10 @@
 -- 9. Assignar el nivell de perillositat a ‘A’ (=alt) a aquelles zones de biocontenció 
 -- que desenvolupin alguna arma de potencial superior a 5
-
+use bdnilcarlos;
 update zona_biocon
 set nivell = 'A'
 where codi in (select zona
-				 from armesbio
+				 from armesBio
                  where potencial > 5);
  
  -- 10. Destituir a tots els responsables dels seus càrrecs, és a dir, passar-los de la 
@@ -20,5 +20,5 @@ insert into ordinaris
 select responsable from zona_biocon;
 
 -- elimino la relación entre zona de biocontenció y responsable
-update zones_biocontencio
+update zona_biocon
 set responsable = null;

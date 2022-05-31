@@ -1,3 +1,5 @@
+use bdnilcarlos;
+
 SELECT nom,num_pass
 from assignacions,employees
 where num_pass=empl_ord
